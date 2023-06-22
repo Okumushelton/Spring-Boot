@@ -8,7 +8,14 @@ import java.time.LocalDate;
 @Table
 public class Student {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(
+     name = "student_sequence",
+            sequenceName = "student_sequence",
+           allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy=GenerationType.AUTO
+    )
 
     private Long id;
     private String name;
